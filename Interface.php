@@ -2,6 +2,8 @@
 
 interface NewsLetter
 {
+    const  a = 'abcd';
+
     function subscribe($email);
 }
 
@@ -10,6 +12,7 @@ class WeeklyNewsLetter implements NewsLetter
 {
     function subscribe($email)
     {
+        die(self::a);
         die('WeeklyNewsLetter');
     }
 }
@@ -27,7 +30,6 @@ class SendNewsLetter
 {
     function store(NewsLetter $newsLetter)
     {
-        die($newsLetter);
         $newsLetter->subscribe('test email');
     }
 }
@@ -42,6 +44,6 @@ class test
 
 
 $controller = new SendNewsLetter;
-$controller->store(new MonthlyNewsLetter);
+$controller->store(new WeeklyNewsLetter);
 
 
